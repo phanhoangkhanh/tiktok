@@ -9,6 +9,7 @@
     //cài cứng 1150px nhưng ko vuot ra dc flex box cha
     width: var(--default-layout-width);
     display: flex;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .content {

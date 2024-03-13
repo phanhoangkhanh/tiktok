@@ -5,17 +5,26 @@ import classNames from 'classnames/bind';
 
 //import Tippy để hiện bóng
 import Tippy from '@tippyjs/react/headless';
+import TippyNew from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+    faCircle,
     faCircleQuestion,
     faCircleXmark,
+    faCloud,
+    faCoins,
     faEarthAfrica,
     faEllipsisVertical,
+    faGear,
     faKeyboard,
     faMagnifyingGlass,
+    faMessage,
+    faSignOut,
     faSpinner,
+    faUser,
+    faUserAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { Wrapper as PopperWrapper } from '~/components/Poppers';
 import AccountItem from '~/components/AccountItem';
@@ -30,6 +39,26 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAfrica} />,
         title: 'English',
+        children: {
+            title: 'Language',
+            data: [
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'eps',
+                    title: 'Espanone',
+                },
+            ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -43,7 +72,37 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
+    const currenUser = true;
     const [searchResult, setSearchResult] = useState(['quyết đến cùng']);
+
+    const handleMenuChange = (menuItem) => {
+        console.log(menuItem);
+    };
+
+    const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUserAlt} />,
+            title: 'View Profile',
+            to: '/@hoa',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCoins} />,
+            title: 'Get Coin',
+            to: '/coin',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faGear} />,
+            title: 'Settings',
+            to: '/settings',
+        },
+        ...MENU_ITEMS,
+        {
+            icon: <FontAwesomeIcon icon={faSignOut} />,
+            title: 'Log out',
+            to: '/log out',
+            separate: true,
+        },
+    ];
 
     return (
         <header className={cx('wrapper')}>
@@ -90,15 +149,43 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <Button text>Upload</Button>
-                    <Button primary onClick={() => alert('HIHI')}>
-                        Log In
-                    </Button>
-
-                    <Menu items={MENU_ITEMS}>
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                    {currenUser ? (
+                        <>
+                            <TippyNew
+                                content="Upload Videos"
+                                placement="bottom"
+                            >
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faCloud} />
+                                </button>
+                            </TippyNew>
+                            <button className={cx('action-btn')}>
+                                <FontAwesomeIcon icon={faMessage} />
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <Button text>Upload</Button>
+                            <Button primary onClick={() => alert('HIHI')}>
+                                Log In
+                            </Button>
+                        </>
+                    )}
+                    <Menu
+                        items={currenUser ? userMenu : MENU_ITEMS}
+                        onChange={handleMenuChange}
+                    >
+                        {currenUser ? (
+                            <img
+                                src="https://bffmedia.vn/wp-content/uploads/2021/05/chup-anh-the-4.jpg"
+                                className={cx('user-avarta')}
+                                alt="P.H.Khanh"
+                            />
+                        ) : (
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        )}
                     </Menu>
                 </div>
             </div>

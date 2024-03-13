@@ -16,6 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 var(--default-layout-horizontal-spacer);
 }
 
 .logo {
@@ -107,9 +108,33 @@
 //     background-color: blue;
 // }
 
+//ACTION
+.actions {
+    display: flex;
+    align-items: center;
+}
+
 .more-btn {
     font-size: 2rem;
     margin-left: 26px;
     padding: 8px;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.action-btn {
+    font-size: 2.4rem;
+    color: #161832;
+    background-color: transparent;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
+.user-avarta {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 999px;
+    margin-left: 12px;
+    cursor: pointer;
 }
