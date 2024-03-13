@@ -15,6 +15,9 @@ function Button({
     small = false,
     large = false,
     children,
+    className, //sẽ là 1 className như css bthuong và dc css bên component gốc
+    leftIcon,
+    rightIcon,
     onClick,
     ...passProps
 }) {
@@ -44,6 +47,8 @@ function Button({
     }
 
     //truyen them 1 obj {primary:primary} vô - gia tri primay true. class = wrapper primary
+    //className : 'hkwggj' - nếu ghi như các class truoc thì nó nhét chuỗi là className ( lấy key)
+    // nét [className] thì nó lấy giá trị hkwggj làm key và nối chuỗi classes để css (css bên cha)
     const classes = cx('wrapper', {
         primary,
         outline,
@@ -52,10 +57,13 @@ function Button({
         large,
         text,
         disable,
+        [className]: true,
     });
     return (
         <Comp className={classes} {...props}>
-            <span>{children}</span>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx('title')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }

@@ -6,6 +6,7 @@
     border-radius: 4px;
     border: 1px solid transparent;
     user-select: none; // boi dc chữ
+    background-color: transparent;
 
     // khi viết css cho 2 nút canh nhau. Ta dùng css để bắt đối tuong  khác (+ là anh em sibling )
     + .wrapper {
@@ -20,6 +21,17 @@
 }
 
 //BUTTON TYPE:
+
+// icon trái phải và title giữa
+.icon + .title,
+.title + .icon {
+    margin-left: 8px;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+}
 
 //nút rounded nhe hơn primary - nen đăt trên
 .rounded {
@@ -66,8 +78,6 @@
         cursor: pointer;
     }
 }
-
-//DISABLE BUTTON
 
 //BUTTON SIZE
 

@@ -1,0 +1,25 @@
+//menu wrapper
+.menu-list {
+    width: 224px;
+
+    //menu items - viết trong cấp cha để nhấn manh them trọng sớ
+    .menu-item {
+        margin-left: 0px;
+        display: block;
+    }
+}
+
+// class truyền từ propper vào
+.menu-popper {
+    padding-bottom: 8px;
+}
+
+.menu-item {
+    width: 100%;
+    text-align: left;
+    font-weight: 500;
+    padding: 11px 16px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
