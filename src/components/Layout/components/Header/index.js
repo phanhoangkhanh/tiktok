@@ -1,38 +1,30 @@
 import styles from './Header.module.scss';
-import { useState } from 'react';
+
 // cài npm i classnames
 import classNames from 'classnames/bind';
 
-//import Tippy để hiện bóng
-import Tippy from '@tippyjs/react/headless';
 import TippyNew from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-    faCircle,
     faCircleQuestion,
-    faCircleXmark,
     faCloud,
     faCoins,
     faEarthAfrica,
     faEllipsisVertical,
     faGear,
     faKeyboard,
-    faMagnifyingGlass,
-    faMessage,
     faSignOut,
-    faSpinner,
-    faUser,
     faUserAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import { Wrapper as PopperWrapper } from '~/components/Poppers';
-import AccountItem from '~/components/AccountItem';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Poppers/Menu';
 import { MailBox, Message } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '~/components/Search';
+import { useRef } from 'react';
 
 //classname giúp ta có thể viết các ten class theo chuan html css với -
 const cx = classNames.bind(styles);
@@ -75,7 +67,7 @@ const MENU_ITEMS = [
 
 function Header() {
     const currenUser = true;
-    const [searchResult, setSearchResult] = useState(['quyết đến cùng']);
+    const ref = useRef(null);
 
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -112,44 +104,8 @@ function Header() {
                 <div className={cx('logo')}>
                     <img src={images.logo.default} alt="TIKTOK" />
                 </div>
-                {/* Tippy để hiện các slect */}
-                <Tippy
-                    interactive //dùng để giao tiep với modal
-                    visible={searchResult.length > 0}
-                    render={(attr) => (
-                        <div
-                            className={cx('search-result')}
-                            tabIndex="-1"
-                            {...attr}
-                        >
-                            <PopperWrapper>
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input
-                            placeholder="Search account or something"
-                            spellCheck={false}
-                        />
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        <FontAwesomeIcon
-                            className={cx('loading')}
-                            icon={faSpinner}
-                        />
-                        <Tippy content="Tim kiem">
-                            <button className={cx('search-btn')}>
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
-                        </Tippy>
-                    </div>
-                </Tippy>
+                {/* KHU VỰC SEAARCH */}
+                <Search />
                 <div className={cx('actions')}>
                     {currenUser ? (
                         <>
@@ -189,6 +145,7 @@ function Header() {
                                 src="https://bffmedia.vn/wp-content/uploads/2021/05/...chup-anh-the-4.jpg"
                                 className={cx('user-avarta')}
                                 alt="P.H.Khanh"
+                                ref={ref}
                             />
                         ) : (
                             <button className={cx('more-btn')}>
