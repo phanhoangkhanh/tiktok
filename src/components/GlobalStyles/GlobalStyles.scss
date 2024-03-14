@@ -1,6 +1,6 @@
 @import 'normalize.css';
-// import font từ GG vào
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+// import font từ GG vào  - cách nhúng như này dòng font Monterrat
+//@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 
 :root {
     --primary: #fe2c55;
@@ -18,8 +18,32 @@
 html {
     font-size: 62.5%;
 }
+
+// lấy font của tiktok từ network save vào assets
+//FONT-EMBED
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokDisplayFont-Bold.woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Bold.woff2');
+    font-weight: 700;
+}
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Regular.woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: TikTokFont;
+    src: url('/assets/fonts/TikTokFont-Semibold.woff2');
+    font-weight: 600;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'TikTokFont', sans-serif;
     font-size: 1.6rem;
     //tải từ web font về nên tối ưu speed truoc
     text-rendering: optimizeSpeed;

@@ -31,6 +31,8 @@ import AccountItem from '~/components/AccountItem';
 
 import Button from '~/components/Button';
 import Menu from '~/components/Poppers/Menu';
+import { MailBox, Message } from '~/components/Icons';
+import Image from '~/components/Image';
 
 //classname giúp ta có thể viết các ten class theo chuan html css với -
 const cx = classNames.bind(styles);
@@ -159,9 +161,16 @@ function Header() {
                                     <FontAwesomeIcon icon={faCloud} />
                                 </button>
                             </TippyNew>
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
-                            </button>
+                            <TippyNew content="Message Sent" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <Message />
+                                </button>
+                            </TippyNew>
+                            <TippyNew content="Mail Box" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MailBox />
+                                </button>
+                            </TippyNew>
                         </>
                     ) : (
                         <>
@@ -176,8 +185,8 @@ function Header() {
                         onChange={handleMenuChange}
                     >
                         {currenUser ? (
-                            <img
-                                src="https://bffmedia.vn/wp-content/uploads/2021/05/chup-anh-the-4.jpg"
+                            <Image
+                                src="https://bffmedia.vn/wp-content/uploads/2021/05/...chup-anh-the-4.jpg"
                                 className={cx('user-avarta')}
                                 alt="P.H.Khanh"
                             />
