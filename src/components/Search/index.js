@@ -139,54 +139,63 @@ function Search() {
         setShowResult(false);
     };
     return (
-        <Tippy
-            interactive //dùng để giao tiep với modal
-            visible={showResult && searchResult.length > 0}
-            render={(attr) => (
-                <div className={cx('search-result')} tabIndex="-1" {...attr}>
-                    <PopperWrapper>
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {searchResult.map((result) => (
-                            <AccountItem key={result.id} data={result} />
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={imputRef}
-                    placeholder="Search account or something"
-                    spellCheck={false}
-                    value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
-                    onFocus={() => setShowResult(true)}
-                />
-                {searchValue && (
-                    <button
-                        className={cx('clear')}
-                        onClick={() => {
-                            setSearchValue('');
-                            imputRef.current.focus();
-                        }}
+        <div>
+            <Tippy
+                interactive //dùng để giao tiep với modal
+                appendTo={() => document.body} // tránh tippy warning - tippy append vào thẻ body chung
+                visible={showResult && searchResult.length > 0}
+                render={(attr) => (
+                    <div
+                        className={cx('search-result')}
+                        tabIndex="-1"
+                        {...attr}
                     >
-                        {!loading && <FontAwesomeIcon icon={faCircleXmark} />}
-                    </button>
+                        <PopperWrapper>
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {searchResult.map((result) => (
+                                <AccountItem key={result.id} data={result} />
+                            ))}
+                        </PopperWrapper>
+                    </div>
                 )}
-                {loading && (
-                    <FontAwesomeIcon
-                        className={cx('loading')}
-                        icon={faSpinner}
+                onClickOutside={handleHideResult}
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={imputRef}
+                        placeholder="Search account or something"
+                        spellCheck={false}
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        onFocus={() => setShowResult(true)}
                     />
-                )}
-                <Tippy content="Tim kiem">
-                    <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
-                </Tippy>
-            </div>
-        </Tippy>
+                    {searchValue && (
+                        <button
+                            className={cx('clear')}
+                            onClick={() => {
+                                setSearchValue('');
+                                imputRef.current.focus();
+                            }}
+                        >
+                            {!loading && (
+                                <FontAwesomeIcon icon={faCircleXmark} />
+                            )}
+                        </button>
+                    )}
+                    {loading && (
+                        <FontAwesomeIcon
+                            className={cx('loading')}
+                            icon={faSpinner}
+                        />
+                    )}
+                    <Tippy content="Tim kiem">
+                        <button className={cx('search-btn')}>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </button>
+                    </Tippy>
+                </div>
+            </Tippy>
+        </div>
     );
 }
 

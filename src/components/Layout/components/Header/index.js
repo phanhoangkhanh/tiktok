@@ -53,6 +53,111 @@ const MENU_ITEMS = [
                     code: 'eps',
                     title: 'Espanone',
                 },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: 'Japanese',
+                },
+                {
+                    type: 'language',
+                    code: 'ko',
+                    title: 'Korea',
+                },
+                {
+                    type: 'language',
+                    code: 'Hin',
+                    title: 'Hindu',
+                },
+                {
+                    type: 'language',
+                    code: 'arab',
+                    title: 'Arab',
+                },
+                {
+                    type: 'language',
+                    code: 'port',
+                    title: 'Portugal',
+                },
+                {
+                    type: 'language',
+                    code: 'eps',
+                    title: 'Espanone',
+                },
+                {
+                    type: 'language',
+                    code: 'cam',
+                    title: 'Caampuchia',
+                },
+                {
+                    type: 'language',
+                    code: 'Thai',
+                    title: 'ThaiLand',
+                },
+                {
+                    type: 'language',
+                    code: 'Indo',
+                    title: 'INdonexia',
+                },
+                {
+                    type: 'language',
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+                {
+                    type: 'language',
+                    code: 'eps',
+                    title: 'Espanone',
+                },
+                {
+                    type: 'language',
+                    code: 'jp',
+                    title: 'Japanese',
+                },
+                {
+                    type: 'language',
+                    code: 'ko',
+                    title: 'Korea',
+                },
+                {
+                    type: 'language',
+                    code: 'Hin',
+                    title: 'Hindu',
+                },
+                {
+                    type: 'language',
+                    code: 'arab',
+                    title: 'Arab',
+                },
+                {
+                    type: 'language',
+                    code: 'port',
+                    title: 'Portugal',
+                },
+                {
+                    type: 'language',
+                    code: 'eps',
+                    title: 'Espanone',
+                },
+                {
+                    type: 'language',
+                    code: 'cam',
+                    title: 'Caampuchia',
+                },
+                {
+                    type: 'language',
+                    code: 'Thai',
+                    title: 'ThaiLand',
+                },
+                {
+                    type: 'language',
+                    code: 'Indo',
+                    title: 'INdonexia',
+                },
             ],
         },
     },
