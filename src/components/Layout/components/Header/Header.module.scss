@@ -24,6 +24,11 @@
     height: 80%;
     // 1 tính năng quan trng là khiến thẻ con nằm trọn trong thẻ cha
     display: flex;
+
+    & img {
+        width: 100px;
+        height: 100%;
+    }
 }
 
 //ACTION

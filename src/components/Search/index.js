@@ -1,4 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
+// tai instane ( utils/ requset ) import thay cho axios thuần
+import * as request from '~/utils/request';
+import * as searchService from '~/apiService/searchService';
 import {
     faCircleXmark,
     faMagnifyingGlass,
@@ -11,6 +15,7 @@ import AccountItem from '~/components/AccountItem';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useDebound } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +27,8 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
+    // layt data debounced de lam cham thoi gian call API
+    const debounced = useDebound(searchValue, 500);
     const imputRef = useRef();
 
     //moi lần type bên Networtk Fetch sẽ call API về back-end.
@@ -34,22 +41,99 @@ function Search() {
             return;
         }
         setLoading(true);
-        //dùng encode đễ mã hóa các từ typing vào, tránh trùng ký tự '& ? =' của API
-        fetch(
-            `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-                searchValue,
-            )}&type=less`,
-        )
-            .then((res) => res.json())
-            .then((res) => {
-                setSearchResult(res.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                // neu bi lỗi cung ngung loading
-                setLoading(false);
-            });
-    }, [searchValue]);
+        //CACH 1 : dùng encode đễ mã hóa các từ typing vào, tránh trùng ký tự '& ? =' của API
+        //     fetch(
+        //         `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
+        //             debounced,
+        //         )}&type=less`,
+        //     )
+        //         .then((res) => res.json())
+        //         .then((res) => {
+        //             setSearchResult(res.data);
+        //             setLoading(false);
+        //         })
+        //         .catch(() => {
+        //             // neu bi lỗi cung ngung loading
+        //             setLoading(false);
+        //         });
+        // }, [debounced]);
+
+        //CACH 2: DÙNG THƯ VIEN AXIOS XỬ LÝ API GON HƠN
+        //bớt dc 1 lần .then -> chuyển sang json
+        // axios
+        //     .get(`https://tiktok.fullstack.edu.vn/api/users/search`, {
+        //         params: {
+        //             q: debounced,
+        //             type: 'less',
+        //         },
+        //     }).get(`users/search`, {
+        //     params: {
+        //         q: debounced,
+        //         type: 'less',
+        //     },
+        // })
+        // .then((res) => {
+        //     //console ra check câu hinh và truy xuât phu hop
+        //     console.log(res);
+        //     setSearchResult(res.data.data);
+        //     setLoading(false);
+        // })
+        // .catch(() => {
+        //     // neu bi lỗi cung ngung loading
+        //     setLoading(false);
+        // });
+        //}, [debounced]);
+
+        //CACH 3:  Hàm get đã viet sẵn bên Utils
+        //     request
+        //         .get(`users/search`, {
+        //             params: {
+        //                 q: debounced,
+        //                 type: 'less',
+        //             },
+        //         })
+        //         .then((res) => {
+        //             //console ra check câu hinh và truy xuât phu hop
+        //             console.log(res);
+        //             setSearchResult(res.data);
+        //             setLoading(false);
+        //         })
+        //         .catch(() => {
+        //             // neu bi lỗi cung ngung loading
+        //             setLoading(false);
+        //         });
+        // }, [debounced]);
+
+        // CACH 4: ASYNC TRUC TIEP XHR
+        // taoo 1 hàm async - XHR ( ko phải fetch )
+        // const fetchAPI = async () => {
+        //     // asyn trả về res luôn
+        //     try {
+        //         const res = await request.get('users/search', {
+        //             params: {
+        //                 q: debounced,
+        //                 type: 'less',
+        //             },
+        //         });
+        //         setSearchResult(res.data);
+        //         setLoading(false);
+        //     } catch (error) {
+        //         setLoading(false);
+        //     }
+        // };
+        //fetchAPI();
+
+        // CACH 5: TÁCH RIENG RA SEARCH SERVICE ĐỂ CALL VÀO
+        const fetApi = async () => {
+            setLoading(true);
+
+            const result = await searchService.search(debounced);
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+        fetApi();
+    }, [debounced]);
 
     const handleHideResult = () => {
         setShowResult(false);
