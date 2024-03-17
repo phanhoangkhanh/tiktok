@@ -26,7 +26,7 @@ import Image from '~/components/Image';
 import Search from '~/components/Search';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import config from '~/config';
 
 //classname giúp ta có thể viết các ten class theo chuan html css với -
 const cx = classNames.bind(styles);
@@ -209,7 +209,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <Link to={routes.home}>
+                    <Link to={config.routes.home}>
                         <img src={images.logo.default} alt="TIKTOK" />
                     </Link>
                 </div>

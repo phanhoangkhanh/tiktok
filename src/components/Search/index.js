@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 // tai instane ( utils/ requset ) import thay cho axios thuần
-import * as request from '~/utils/request';
-import * as searchService from '~/apiService/searchService';
+import * as request from '~/utils/httpRequest';
+import * as searchService from '~/Service/searchService';
 import {
     faCircleXmark,
     faMagnifyingGlass,

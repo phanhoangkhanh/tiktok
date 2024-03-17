@@ -7,7 +7,7 @@ import {
 // import Home from './page/Home';
 // import Following from './page/Following';
 import { publicRoutes, privateRoutes } from './routes';
-import { DefaultLayout } from '~/components/Layout';
+import { DefaultLayout } from '~/layouts';
 import { Fragment } from 'react';
 
 function App() {
