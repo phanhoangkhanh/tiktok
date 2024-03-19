@@ -1,0 +1,16 @@
+.wrapper {
+    --width-default-content: 692px;
+    width: var(--width-default-content);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrapper {
+    width: var(--width-default-content);
+    height: 694px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0.8px;
+    border-bottom: 1px solid #eaeaeb;
+}

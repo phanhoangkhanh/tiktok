@@ -5,32 +5,33 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
-function AccountPreview() {
+function AccountPreview({ props }) {
+    //console.log(props);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
-                <img
-                    className={cx('avarta')}
-                    src="https://tiemanhsky.com/wp-content/uploads/2020/03/%E1%BA%A3nh-th%E1%BA%BB-683x1024.jpg"
-                    alt=""
-                />
+                <img className={cx('avarta')} src={props.avatar} alt="" />
                 <Button primary small>
                     Follow
                 </Button>
             </div>
             <div className={cx('body')}>
                 <p className={cx('nickname')}>
-                    <strong>QuocNguyenPhu</strong>
+                    <strong>{props.nickname}</strong>
                     <FontAwesomeIcon
                         icon={faCheckCircle}
                         className={cx('check')}
                     />
                 </p>
-                <p className={cx('name')}>Quoc Nguyen </p>
+                <p className={cx('name')}>{props.nickname}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>8.2M </strong>
+                    <strong className={cx('value')}>
+                        {props.followers_count}{' '}
+                    </strong>
                     <span className={cx('label')}>Followers</span>
-                    <strong className={cx('value')}>2.2M </strong>
+                    <strong className={cx('value')}>
+                        {props.likes_count}{' '}
+                    </strong>
                     <span className={cx('label')}>Likes</span>
                 </p>
             </div>

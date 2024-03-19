@@ -1,5 +1,15 @@
+import classNames from 'classnames/bind';
+import styles from './Home.module.scss';
+import Content from './Content';
+
+const cx = classNames.bind(styles);
+
 function Home() {
-    return <h3 style={{ height: '2000px' }}>Home Page</h3>;
+    return (
+        <div className={cx('wrapper')}>
+            <Content />
+        </div>
+    );
 }
 
 export default Home;

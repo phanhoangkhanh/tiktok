@@ -7,7 +7,7 @@ const request = axios.create({
     baseURL: process.env.REACT_APP_BASE_URP,
 });
 
-//async là 1 hàm  promise
+//async là 1 hàm  promise - KO CAN DÙNG NỮA VÌ VIẾT RIÊNG TỪNG SERVICE CHO TỪNG HÀNH VI
 export const get = async (path, options = {}) => {
     // request phía trên
     const respond = await request.get(path, options);

@@ -34,7 +34,7 @@ const cx = classNames.bind(styles);
 const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faEarthAfrica} />,
-        title: 'English',
+        title: 'Language',
         children: {
             title: 'Language',
             data: [
@@ -181,6 +181,7 @@ function Header() {
     };
 
     const userMenu = [
+        ...MENU_ITEMS,
         {
             icon: <FontAwesomeIcon icon={faUserAlt} />,
             title: 'View Profile',
@@ -196,7 +197,7 @@ function Header() {
             title: 'Settings',
             to: '/settings',
         },
-        ...MENU_ITEMS,
+
         {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',

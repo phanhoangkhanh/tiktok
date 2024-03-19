@@ -1,0 +1,49 @@
+.wrapper-info {
+    display: flex;
+    height: 95px;
+    padding-top: 20px;
+    position: relative;
+}
+
+.text-info {
+    padding-top: 8px;
+    width: 450px;
+    padding-left: 15px;
+}
+
+.link-nickname {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+}
+
+.image {
+    height: 56px;
+    width: 56px;
+    border-radius: 999px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.info-button {
+    position: absolute;
+    top: 28px;
+    right: 0px;
+    background-color: transparent;
+    color: var(--primary);
+
+    &:hover {
+        background-color: rgba(254, 44, 85, 0.06);
+        border-color: currentColor;
+    }
+}
+
+.message {
+    line-height: 1.5;
+    font-size: 1.6rem;
+}
+
+.wrapper-item {
+    display: flex;
+    flex: 1;
+}

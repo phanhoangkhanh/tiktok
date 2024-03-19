@@ -21,6 +21,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
             const isParent = !!item.children;
             return (
                 <MenuItem
+                    className={item.title == 'Language' ? 'language' : null}
                     key={index}
                     data={item}
                     onClick={() => {
