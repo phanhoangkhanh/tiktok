@@ -3,21 +3,15 @@ import styles from './Home.module.scss';
 import { VideoInfo, VideoItem } from '~/components/Video';
 
 const cx = classNames.bind(styles);
-function Content() {
+function Content({ items }) {
     return (
         <>
-            <div className={cx('content-wrapper')}>
-                <VideoInfo />
-                <VideoItem />
-            </div>
-            <div className={cx('content-wrapper')}>
-                <VideoInfo />
-                <VideoItem />
-            </div>
-            <div className={cx('content-wrapper')}>
-                <VideoInfo />
-                <VideoItem />
-            </div>
+            {items.map((item, index) => (
+                <div className={cx('content-wrapper')} key={index}>
+                    <VideoInfo props={item} />
+                    <VideoItem props={item} />
+                </div>
+            ))}
         </>
     );
 }

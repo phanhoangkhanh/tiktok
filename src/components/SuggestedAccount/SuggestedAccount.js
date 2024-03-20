@@ -19,7 +19,7 @@ function SuggestedAccount({ label }) {
     useEffect(() => {
         fetchApi();
     }, []);
-    console.log(suggestUsers);
+    //console.log(suggestUsers);
     return (
         <div className={cx('wrapper')}>
             <p className={cx('label')}>{label}</p>

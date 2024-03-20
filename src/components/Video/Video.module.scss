@@ -11,6 +11,11 @@
     padding-left: 15px;
 }
 
+.ex-message {
+    opacity: 0.6;
+    display: inline-block;
+}
+
 .link-nickname {
     font-size: 18px;
     font-weight: 700;
@@ -33,7 +38,7 @@
     color: var(--primary);
 
     &:hover {
-        background-color: rgba(254, 44, 85, 0.06);
+        background-color: #fff3f5;
         border-color: currentColor;
     }
 }
@@ -43,7 +48,54 @@
     font-size: 1.6rem;
 }
 
+// PHẦN ITEMS BÊN DƯỚI
 .wrapper-item {
     display: flex;
     flex: 1;
+    margin-left: 71px;
+    position: relative;
+}
+
+.item-video {
+    width: 320px;
+    height: 560px;
+}
+
+.video-inner {
+    object-fit: cover;
+    width: 320px;
+    height: 560px;
+    border-radius: 8px;
+}
+
+.item-icons-list {
+    width: 48px;
+    height: 336px;
+    margin-left: 30px;
+    transform: translateY(224px);
+    display: flex;
+    flex-direction: column;
+
+    & button {
+        height: 81px;
+        background-color: transparent;
+    }
+}
+
+.cover-item {
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    background-color: rgba(22, 24, 35, 0.06);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.round-item {
+}
+
+.number {
+    margin-top: 8px;
 }
