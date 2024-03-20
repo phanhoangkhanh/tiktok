@@ -10,7 +10,10 @@ function VideoInfo({ props }) {
         <div className={cx('wrapper-info')}>
             <img src={props.user.avatar} alt="..." className={cx('image')} />
             <div className={cx('text-info')}>
-                <Link className={cx('link-nickname')} to="/">
+                <Link
+                    className={cx('link-nickname')}
+                    to={`${props && props.user.nickname}`}
+                >
                     {props.user.first_name}
                 </Link>{' '}
                 <div className={cx('ex-message')}>{props.user.nickname}</div>

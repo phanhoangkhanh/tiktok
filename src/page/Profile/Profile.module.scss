@@ -1,0 +1,123 @@
+.wrapper {
+    margin-top: 34px;
+}
+
+.info {
+    --width-info: 624px;
+    width: var(--width-info);
+    height: 200px;
+    display: flex;
+    position: relative;
+}
+
+.avarta {
+    width: 116px;
+    height: 116px;
+    object-fit: cover;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.inner-info {
+    width: 396px;
+    height: 119px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.nick-name {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+    margin-bottom: 4px;
+    text-align: left;
+}
+
+.full-name {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 25px;
+    text-overflow: ellipsis;
+    height: 25px;
+    overflow: hidden;
+    max-width: 450px;
+    white-space: nowrap;
+    padding-bottom: 18px;
+}
+
+.btn {
+    display: inline-block;
+    width: 208px;
+    height: 36px;
+    margin-top: 18px;
+    cursor: pointer;
+}
+
+.bottom-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: var(--width-info);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.counts {
+    padding-right: 6px;
+}
+
+.fields {
+    padding-right: 16px;
+    color: rgba(22, 24, 35, 0.75);
+    font-family: ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.icon-group {
+    position: absolute;
+    width: 60px;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.share {
+    margin-right: 5px;
+    color: white;
+}
+
+.tag-border {
+    margin-top: 60px;
+    margin-bottom: 8px;
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.tag-titile {
+    padding: 0 32px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.tag-titile:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.videos-bar {
+    display: grid;
+    grid-gap: 50px 36px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.video-item {
+    height: 258px;
+    width: 194px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
