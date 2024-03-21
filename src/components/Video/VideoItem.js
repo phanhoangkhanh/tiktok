@@ -20,7 +20,7 @@ function VideoItem({ props }) {
             videoRef.current.play();
         } else if (!isVisible && videoRef.current) {
             videoRef.current.pause();
-            console.log('NGUNG', videoRef.current);
+            //console.log('NGUNG', videoRef.current);
         }
     }, [isVisible]);
     const handleVideoEnded = () => {
